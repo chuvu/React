@@ -1,0 +1,20 @@
+language: node_js
+script:
+  - npm run install:demo
+  - npm run build:demo
+  - npm run lint
+  - npm test
+deploy:
+  provider: npm
+  email: me@mattderrick.co.uk
+  api_key:
+    secure: ge4pjksEwP8kKRdS3nq1Bq7gPH9t9/G44vMqUd5BO5puR760jucvXCdqJ9isBzAHyXE7+0jbXmpE1KbUsiGqkasGEYsxtJYvx1Lb2F37e6W7QDRWxmN1AG0+MkTl49+RQFaL9uMLSWl9yStRWnzljcqbK8Jcnt8cE+JU1zvwCkKnokysyCbL7pz8w22fwuXZP8wg8wYZQL5c9mYRtNyUKFloNfADMEO1Zl0ZbpgBJdiT/MXtY6F1Y7mdCc+fCPucv0kbxoXm/kNsryYB0iLdtqwn3TW56Bwt+jaTEy2Wr62il1wST9/da4Iwzt5THLPO4+8sR2te45HkmaZmeRI92W6t7GUgseImTzYeFdxoyxXyziFH1hNTlOQuGDSie5DX87OXlEouILUmiLTcNZL0GrF6BALOyFB8ac/wtAO0OlVJqnMwlTI4s8K4yVBlP5cpRdPKVwbuwS/KX8pOhAmtRhyKgIBonsLuTp6GRkS1704Ui0nIJPjo65gOJIfnorYkKeJqrT6oDG1IUipCXX9vN5R0h00JqR3fOXsA1h6j1QFpg3hlG6UBXFWJ3SQdUUGjczy+z80sipRA2Kdf2TnFSKu1tVpRghWJ9bfmQmyN8NyzYCH9rxJj4K/Nh0TAi3J5Ns/6ypHwOg/9/s/8MhJUwE+FLaKy7NYl+RQXLnEeanA=
+  skip_cleanup: true
+  on:
+    tags: true
+    repo: mderrick/react-html5video
+after_deploy:
+  - npm run deploy:demo
+env:
+  global:
+    secure: Jay4xSxm/nSDbbv7AghcCRCxbkzrX92SToFjW1ZvbnH/4gjgEHqNgaoZH/3mJ/s+1GyC9SCiAcOwlnCAGFabYdQNhwHBhQJFMK8v0WP2IKC2Vwh294sGPrCTvexRceumlh6y1la1KYYTuu6DDDsAaZ8eQcrK6hOcfuwl5xXB4xGNfshLavITs8a71F1RdX0cCa/ifSzbDjkfY1+1/o7vCCK595WP+WvTD/gA/OlpDygmtzJwg0400o9vmAlz7KzCLkk7pVakNODv3QvGHpd5n8jpzW30sHyKbnZfiqZPuw/6yV6NIYBmAXrviLUYQt07KU0IFWDO6cjc2H6puk3tL0yyZgZ0fMnin9mEGM0Rrf71zrtBH3XBhsLJGFK/vCuC1Kl+/mDSBrxm7koBawh7tzxOw7H2L3PMDin0A4MvUQS54ffGXd2AhNQKcf3w7eEb/kwdIOWPMcvDO7cca9OQxi50HB7bPOTsOIVflmCfgomBV2pwWAaAqcAGJni8dvp1BI8wN95bDLU1lSeTT/9RQlDRjykG5FzH/yBKhqVax+mtl6AxEFDHsZKE2Tc/mVqzpRChGJ9GF4N+E003qTaS6kTmqzYja/p9UL8aWThkQf4MnD91SR8duvD2wZOXoyNn+rSrrtZJ0p055mhms58ZbOSDgNPK8xSS0RZdPlwd+zo=

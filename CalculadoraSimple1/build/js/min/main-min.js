@@ -1,0 +1,1 @@
+console.error("SyntaxError: /Library/WebServer/simple_calculator/src/components/Button.jsx: Unexpected token (6:48) while parsing file: /Library/WebServer/simple_calculator/src/components/Button.jsx");

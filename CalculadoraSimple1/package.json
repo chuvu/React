@@ -1,0 +1,27 @@
+{
+  "name": "react-seed",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "watchify -t [ babelify --presets [ react ] ] src/main.jsx -o build/js/main.js -v"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mizech/react-seed.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mizech/react-seed/issues"
+  },
+  "homepage": "https://github.com/mizech/react-seed#readme",
+  "dependencies": {
+    "babel-preset-react": "^6.11.1",
+    "babelify": "^7.3.0",
+    "browserify": "^13.1.0",
+    "react": "^15.3.0",
+    "react-dom": "^15.3.0",
+    "watchify": "^3.7.0"
+  }
+}

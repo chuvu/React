@@ -1,0 +1,79 @@
+$lightChange: 25%;
+$borderRadius: 6px;
+
+@mixin addPseudoClasses($selector, $color) {
+  #{$selector}:visited, #{$selector}:hover {
+    color: white;
+  }
+
+  #{$selector}:hover {
+    background: linear-gradient(lighten($color, $lightChange), $color); 
+    color: white;
+    cursor: pointer;
+  }
+
+    #{$selector}:active {
+    opacity: 0.6;
+    box-shadow: 1px 1px 0 black;
+  }
+}
+
+html, body {
+	height: 100%;
+}
+
+body {
+  background: linear-gradient(to top, #403B4A , #E7E9BB);
+}
+
+.nav-button {
+  text-decoration: none;
+  color: green;
+  padding: 10px 20px;
+  text-align: center;
+  font-weight: 900;
+  font-size: 1.2rem;
+  margin-bottom: 16px;
+  display: inline-block;
+  width: 100%;
+  border-radius: $borderRadius;
+  letter-spacing: 1px;
+  box-shadow: 2px 2px 0 black;
+}
+
+.nav-button[disabled] {
+  color: crimson;
+}
+
+.calculation-method { 
+  background: linear-gradient(to top, #abbaab ,#ffffff); 
+}
+
+@include addPseudoClasses('.calculation-method', #344334);
+
+h1 {
+  text-align: center;
+  margin: 20px 0 30px;
+  letter-spacing: 2px;
+}
+
+.attention {
+  background: linear-gradient(to top, darken(#ED4264, $lightChange), #FFEDBC);
+  text-transform: uppercase;
+  color: white;
+}
+
+@include addPseudoClasses('.attention', red);
+
+.invalid-input {
+  border-color: red !important;
+  background-color: pink !important;
+}
+
+input[type=text] {
+  border-radius: $borderRadius !important;
+  box-shadow: inset 1px 1px 0 black;
+  padding-left: 20px;
+  font-weight: 900;
+}
+

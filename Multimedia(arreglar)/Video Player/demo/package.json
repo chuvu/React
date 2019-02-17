@@ -1,0 +1,9 @@
+{
+  "name": "react-html5video-demo",
+  "dependencies": {
+    "react": "^16.0.0-rc.3",
+    "react-dom": "^16.0.0-rc.3",
+    "react-html5video": "file:../",
+    "reset-css": "^2.2.0"
+  }
+}

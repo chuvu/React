@@ -1,0 +1,69 @@
+html, body {
+  height: 100%; }
+
+body {
+  background: linear-gradient(to top, #403B4A, #E7E9BB); }
+
+.nav-button {
+  text-decoration: none;
+  color: green;
+  padding: 10px 20px;
+  text-align: center;
+  font-weight: 900;
+  font-size: 1.2rem;
+  margin-bottom: 16px;
+  display: inline-block;
+  width: 100%;
+  border-radius: 6px;
+  letter-spacing: 1px;
+  box-shadow: 2px 2px 0 black; }
+
+.nav-button[disabled] {
+  color: crimson; }
+
+.calculation-method {
+  background: linear-gradient(to top, #abbaab, #ffffff); }
+
+.calculation-method:visited, .calculation-method:hover {
+  color: white; }
+
+.calculation-method:hover {
+  background: linear-gradient(#6c8b6c, #344334);
+  color: white;
+  cursor: pointer; }
+
+.calculation-method:active {
+  opacity: 0.6;
+  box-shadow: 1px 1px 0 black; }
+
+h1 {
+  text-align: center;
+  margin: 20px 0 30px;
+  letter-spacing: 2px; }
+
+.attention {
+  background: linear-gradient(to top, #a00f2c, #FFEDBC);
+  text-transform: uppercase;
+  color: white; }
+
+.attention:visited, .attention:hover {
+  color: white; }
+
+.attention:hover {
+  background: linear-gradient(#ff8080, red);
+  color: white;
+  cursor: pointer; }
+
+.attention:active {
+  opacity: 0.6;
+  box-shadow: 1px 1px 0 black; }
+
+.invalid-input {
+  border-color: red !important;
+  background-color: pink !important; }
+
+input[type=text] {
+  border-radius: 6px !important;
+  box-shadow: inset 1px 1px 0 black;
+  padding-left: 20px;
+  font-weight: 900; }
