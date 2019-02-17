@@ -1,2 +1,0 @@
-# React
-Compilation Exercises React 
