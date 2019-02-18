@@ -8,7 +8,8 @@ para sistema de votos2.
 2.El primer cuestionario tiene opcion de radiobutton y una vez que
 hayas votado sale un bar chart  con los resultados.
 
-2.El segundo cuestionario tiene opcion de radiobutton y una vez que
+3.El segundo cuestionario tiene opcion de radiobutton y una vez que
 hayas votado sale un pie chart  con los resultados.
 
+4.Los datos se van guardando en tablas MYSQL para que luego pueda leer los resultados de los votos.
 
