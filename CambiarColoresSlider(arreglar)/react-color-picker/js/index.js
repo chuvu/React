@@ -25,7 +25,7 @@ var ColorPicker = function (_React$Component) {_inherits(ColorPicker, _React$Com
       var myStyle = {
         backgroundColor: bgc };
 
-      body.style.backgroundColor = bgc;
+      // body.style.backgroundColor = bgc;
 
       return (
         React.createElement("div", { className: "color-picker" },
