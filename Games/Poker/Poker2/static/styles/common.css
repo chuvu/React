@@ -1,0 +1,15 @@
+:root {
+  --navigation-line-height: 1.1;
+}
+
+.layout {
+  border  : 1px solid #DDD;
+}
+
+.navigation {
+  line-height: var(--navigation-line-height);
+}
+
+.navigation a {
+  margin-left: 1vw;
+}

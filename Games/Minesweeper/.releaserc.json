@@ -1,0 +1,22 @@
+{
+    "branch": "master",
+    "plugins": [
+        [
+            "@semantic-release/exec",
+            {
+                "prepareCmd": "envman add --key NEW_APP_VERSION --value ${nextRelease.version} && npm version ${nextRelease.version} --git-tag-version=false"
+            }
+        ],
+        "@semantic-release/commit-analyzer",
+        "@semantic-release/release-notes-generator",
+        [
+            "@semantic-release/git",
+            {
+                "assets": ["android/**/*.*", "ios/**/*.*", "package.json", "package-lock.json"]
+            }
+        ]
+        
+    ],
+    "dryRun": false,
+    "ci": true
+}

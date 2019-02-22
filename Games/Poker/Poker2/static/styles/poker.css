@@ -1,0 +1,563 @@
+* {
+  box-sizing            : border-box;
+}
+
+:root {
+  font-family           : sans-serif;
+  --navigation-height   : calc(var(--navigation-line-height, 1.1) * 1rem);
+}
+
+body {
+  margin: 0;
+}
+
+.layout {
+  border: none !important;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+/* common to all game layouts */
+#game {
+  --game-bg     : green;
+  --game-color  : white;
+  display       : grid;
+  text-align    : center;
+  background    : var(--game-bg);
+  color         : var(--game-color);
+  --game-height : calc(100vh - var(--navigation-height));
+  --game-width  : 100vw;
+  min-height    : var(--game-height);
+  max-height    : var(--game-height);
+  overflow      : hidden;
+  position      : relative;
+}
+
+#game>* {
+  justify-self: center;
+  align-self  : center;
+}
+
+/* status elements */
+.money {
+  grid-area: money;
+  justify-self: start;
+  margin-left : 2vw;
+}
+.jokerRounds {
+  grid-area: joker;
+  justify-self: end;
+  margin-right: 2vw;
+}
+.title {
+  grid-area: title;
+  font-size: 2em;
+}
+
+.money, .jokerRounds {
+  font-size   : 2em;
+}
+
+#test::before{
+  display: block;
+  content: var(--layout);
+  padding: 20%;
+}
+#test {
+  grid-area       : wins;
+  background-color: lightgray; 
+  color           : blue;
+  width           : var(--card-width);
+  height          : var(--card-height);
+  z-index         : 100;
+}
+
+/* win table */
+
+.winTable {
+  grid-area : wins;
+  display   : table;
+  font-size : calc(0.02 * var(--game-height))
+}
+
+.winTable * {
+    transition: background 1s ease, font-weight 1s ease;
+}
+
+.winTableRow {
+  display: table-row;
+}
+
+.winTableCell {
+  --border-width    : 0em;
+  --cell-bg         : var(--game-bg);
+  --even-row-color  : #090;
+  --cell-radius     : 0.5em;
+  background        : var(--cell-bg);
+  color             : var(--game-color);
+  display           : table-cell;
+  text-align        : right;
+}
+
+.winTableRow:nth-child(even)>.winTableCell {
+  --cell-bg: var(--even-row-color);
+}
+
+.winTableRow>.winTableCell.winLabel {
+  border-bottom-left-radius : var(--cell-radius);
+  border-top-left-radius    : var(--cell-radius);
+}
+
+.winTableRow:nth-child(even)>.winTableCell:last-child:not(.currentBet) {
+  border-bottom-right-radius: var(--cell-radius);
+  border-top-right-radius   : var(--cell-radius);
+}
+
+.currentBet {
+  --border-width: 0.2em;
+  border-width  : var(--border-width);
+  border-color  : #0E0;
+}
+
+.winTableCell.currentBet {
+  border-style: none solid none solid;
+}
+.winTableRow:first-child>.winTableCell.currentBet {
+  border-style: solid solid none solid;
+  border-top-left-radius    : var(--cell-radius);
+  border-top-right-radius   : var(--cell-radius);
+}
+
+.winTableRow:last-child>.winTableCell.currentBet {
+  border-style: none solid solid solid;
+  border-bottom-left-radius : var(--cell-radius);
+  border-bottom-right-radius: var(--cell-radius);
+}
+
+.winTableCell:first-child {
+  text-align      : left;
+  --padding-left  : 0em;
+}
+
+.winTableCell:last-child {
+  --padding-right : 0.3em;
+}
+
+.winTableCell > div {
+  display         : inline-block;
+  --padding-left  : 0.5em;
+  --padding-right : 0.5em;
+  padding-top     : 0.2em;
+  padding-bottom  : 0.2em;
+  padding-left    : calc(var(--padding-left)  - var(--border-width));
+  padding-right   : calc(var(--padding-right) - var(--border-width));
+  border          : 0;
+  border-radius   : 0.5em;
+}
+/* show last win if any */
+.lastWin  >.winTableCell.winLabel >div,
+.lastWin  >.winTableCell.lastBet  >div {
+  font-weight : bold;
+}
+.lastWin>.winTableCell.winLabel>div {
+  background  : var(--cell-bg) radial-gradient(ellipse farthest-corner at center, magenta, purple, transparent);
+}
+.lastWin>.winTableCell.lastBet>div {
+  background: var(--cell-bg) radial-gradient(ellipse farthest-corner at center, magenta, purple, transparent 75%, transparent);
+}
+
+.control {
+  z-index: 100;
+}
+
+.control {
+ --control-height: 7vh;
+}
+
+.control {
+  height            : var(--control-height);
+  width             : calc(2 * var(--control-height));
+  max-width         : 18vw;
+  background-color  : lightgray;
+  color             : gray;
+  font-weight       : bold;
+  position          : relative;
+  grid-area         : control;
+  border            : 1px solid gray;
+  border-radius     : 60%;
+  display           : flex;
+  flex-direction    : column;
+  justify-content   : space-around;
+}
+
+.control.active {
+  background: radial-gradient(yellow, lightgray);
+  color     : black;
+}
+
+.control.bet {
+  left: -40%;
+}
+
+.control.deal {
+  left: 40%;
+}
+
+.control.right {
+  left: 20%;
+}
+/* card position variables common to all layouts */
+.cards {
+  grid-area     : table;
+  overflow      : visible;
+  width         : calc(100%);
+  height        : var(--card-height);
+}
+
+.card {
+  grid-area       : table;
+  --card-top      : var(--deck-top);
+  --card-left     : var(--deck-left);
+  --hiding-offset : 0.04vh;
+  width           : var(--card-width);
+  height          : var(--card-height);
+  border-radius   : calc(0.04 * var(--card-height));
+  z-index         : calc(60 - var(--card-order, 0));
+  position        : fixed;
+  transition      : top 0.5s ease, left 0.5s ease;
+}
+
+/* These apply to shown cards at the end and hidden in the beginning*/
+.card {
+  --card-font-size: calc(var(--card-height) * 0.2);
+  --card-bg       : white;
+  --card-border   : 1px solid lightgray;
+  --card-padding  : calc(0.5 * (var(--card-height) - var(--card-font-size)));
+}
+
+/* this is the default state for cards*/
+.card.hidden {
+  border    : 0.7vh solid white;
+  /* background: radial-gradient(#88F, #66A); */
+  background: content-box url('/static/img/card-background.png') center/contain;
+  top       : calc(var(--card-top, 0%)  + var(--hiding-offset) * var(--card-order, 0));
+  left      : calc(var(--card-left, 0%) + var(--hiding-offset) * var(--card-order, 0));
+}
+
+/* Adding joker */
+
+.roundFinished  >.cards >.card.jokerAdded {
+  animation     : reveal 1s both;
+  transition    : top 1s ease, left 1s ease;
+  left          : calc(var(--deck-left) + 2 * var(--card-width));
+  top           : var(--deck-top);
+}
+
+.dealing,
+.handDealt {
+  /* allow same formula for delay to be used for cards revealed after choice to avoid unwanted reanimation*/
+  --extra-reveal-delay: 0.4s;
+}
+
+.card.show {
+  --reveal-delay  : calc(0.6s + 0.2s* (var(--card-order) - 3) + var(--extra-reveal-delay, 0s));
+  animation       : reveal 1s var(--reveal-delay) both;
+  --card-font-size: calc(var(--card-height) * 0.2);
+  --card-bg       : white;
+  --card-border   : 1px solid lightgray;
+  --card-padding  : calc(0.5 * (var(--card-height) - var(--card-font-size)));
+  font-size       : var(--card-font-size);
+  padding         : var(--card-padding) 0px;
+  background      : var(--card-bg);
+  border          : var(--card-border);  
+  color           : var(--card-color);
+}
+.card.show.right {
+  --reveal-delay: 1.6s;
+}
+
+.choiceMade>.cards>.card.table {
+  transition: top 0.5s ease 0.5s, left 0.5s ease 0.5s;
+}
+
+@keyframes reveal {
+  from {
+    transform: rotate(0deg);
+    border    : 0.7vh solid white;
+    background: content-box url('/static/img/card-background.png') center/contain;
+    color     : transparent;
+    padding   : 0px;
+  }
+  49% {
+    /* hidden card style*/
+    border    : 0.7vh solid white;
+    background: content-box url('/static/img/card-background.png') center/contain;
+    color     : transparent;
+    padding   : 0px;
+    transform : rotateX(90deg);
+  }
+  50% {
+    font-size : var(--card-font-size);
+    padding   : var(--card-padding) 0px;
+    background: var(--card-bg);
+    border    : var(--card-border);  
+    color     : var(--card-color);
+    transform : rotateX(90deg);
+  }
+  to {
+    font-size : var(--card-font-size);
+    padding   : var(--card-padding) 0px;
+    background: var(--card-bg);
+    border    : var(--card-border);  
+    color     : var(--card-color);
+  }
+}
+
+/* cards from table to deck / just added joker */
+.choiceMade       >.cards >.card.discarded,
+.prepareShuffling >.cards >.card.table,
+.prepareShuffling >.cards >.card.jokerAdded,
+/* Keep the animation end state in effect until resetting it while shuffling */
+.choiceMade       >.cards>.card.hide,
+.roundFinished    >.cards>.card.hide,
+.prepareShuffling >.cards>.card.hide {
+  /* move after hiding */
+  animation   : hide 0.5s both;
+  --card-top  : var(--deck-top);
+  --card-left : var(--deck-left);
+  top         : calc(var(--card-top, 0%)  + var(--hiding-offset) * var(--card-order, 0));
+  left        : calc(var(--card-left, 0%) + var(--hiding-offset) * var(--card-order, 0));
+  transition  : top 0.5s ease 0.5s, left 0.5s ease 0.5s;
+}
+/* Remove joker from deck */
+.prepareShuffling >.cards >.card.jokerRemoved.fromDeck {
+  /* move after hiding */
+  animation   : reveal 0.4s 0.2s backwards, hide 0.4s forwards;
+  top         : var(--deck-top);
+  left        : 100vw;
+  transition  : top 1s ease, left 1s ease;
+}
+/* Remove joker from table */
+.prepareShuffling >.cards >.card.jokerRemoved.fromTable {
+  /* move after hiding */
+  animation   : hide 0.5s both;
+  top         : var(--deck-top);
+  left        : 100vw;
+  transition  : top 0.5s ease 0.5s, left 0.5s ease 0.5s;
+}
+
+@keyframes hide {
+  from {
+    transform : rotateX(0deg);
+    font-size : var(--card-font-size);
+    padding   : var(--card-padding) 0px;
+    background: var(--card-bg);
+    border    : var(--card-border);  
+    color     : var(--card-color);
+  }
+  49% {
+    transform : rotateX(90deg);
+    font-size : var(--card-font-size);
+    padding   : var(--card-padding) 0px;
+    background: var(--card-bg);
+    border    : var(--card-border);  
+    color     : var(--card-color);
+  }
+  50% {
+    /* hidden card style*/
+    border    : 0.7vh solid white;
+    background: content-box url('/static/img/card-background.png') center/contain;
+    color     : transparent;
+    transform : rotateX(90deg);
+    padding   : 0px;
+  }
+  to {
+    transform : rotate(0deg);
+    border    : 0.7vh solid white;
+    background: content-box url('/static/img/card-background.png') center/contain;
+    color     : transparent;
+    padding   : 0px;
+  }
+}
+
+.card.red {
+  --card-color: red;
+}
+
+.card.black {
+  --card-color: black;
+}
+
+.card.joker {
+  --card-color: blue;
+}
+
+.card.table {
+  --card-top      : var(--table-top);
+  --hiding-offset : 0%;
+  --table-offset  : calc(10% + 20% * var(--card-order,0) - 0.5 * var(--card-width));
+  top             : calc(var(--card-top) + var(--hiding-offset));
+  left            : calc(var(--table-offset) + var(--hiding-offset));
+}
+
+.card.table.left {
+  --table-offset  : calc(50% - 0.5 * var(--card-width));
+}
+.card.table.right {
+  --table-offset  : calc(70% - 0.5 * var(--card-width));
+}
+
+.card.table.hidden {
+  --hiding-offset : calc(1vh * (var(--card-order, 0) - 2));
+    /*top             : calc(var(--card-top) + 50px);*/
+}
+
+/* card transitions */
+
+.shuffling .card.deck {
+  animation: shuffle 1s;
+  --trx0: 50%;
+  --angle-unit: 13deg;
+  --trx-unit: 1vw;
+  --factor: calc(var(--card-order) - 26);
+  --rotation: calc(var(--angle-unit) * var(--factor));
+  --trx1-factor: 12%;
+  --trx1: calc(var(--trx1-factor) * var(--factor))
+}
+.shuffling .card.deck:nth-child(even) {
+  --trx1-factor: 6%;
+}
+
+@keyframes shuffle {
+  50% {
+    left: 40%;
+    top: 40%;
+    transform:
+      translate(var(--trx0))
+      rotate(var(--rotation))
+      translate(var(--trx1))
+      translateY(calc(-100%))
+    ;
+  }
+}
+
+.dealing>.card.table {
+  animation: deal 1s;
+}
+
+@keyframes deal {
+  from {
+    top   : -100%;
+    left  : -30%;
+  }
+  
+  to {
+    top   : var(--hiding-offset);
+    left  : calc(var(--table-offset) + var(--hiding-offset));
+  }
+}
+
+/* card placeholders on the table */
+.placeHolder {
+  grid-area       : table;
+  --table-offset  : calc(-40% + 20% * var(--card-order,0));
+
+  width           : var(--card-width);
+  height          : var(--card-height);
+  border-radius   : calc(0.04 * var(--card-height));
+  z-index         : calc(60 - var(--card-order, 0));
+  background-color: transparent;
+  z-index         : 1;
+  border          : calc(0.03*var(--card-width)) solid #6F6;
+}
+.placeHolder.table {
+  position        : relative;
+  left            : var(--table-offset);  
+}
+.placeHolder.deck {
+  grid-area: deck;
+}
+
+/* joker initially hidden position */
+.jokerRemoved,
+.card.hidden.initiallyHidden {
+  top     : var(--deck-top);
+  left    : 100vw;
+}
+
+/* Default layout 
+@media (min-aspect-ratio: 1/2) and (max-aspect-ratio: 1/1)
+*/
+#game {
+  --layout              : 'portrait';
+  grid-template-columns : 3fr 3fr 8fr 3fr 3fr;
+  grid-template-rows    : 3fr 10fr 10fr 3fr;
+  grid-template-areas   : 
+    "money   title   title  title    joker"
+    "deck    deck    wins    wins    wins"
+    "table   table   table   table   table"
+    "control control control control control"
+  ;
+  --card-width  : calc(0.16 * var(--game-width));
+  --card-height : calc(1.4 * var(--card-width));  
+
+  /*
+  This is now solved by querying placeholder positions after mounting and on resize
+  --deck-start  : calc( 3 / 26 * var(--game-height) + var(--navigation-height));
+  --deck-height : calc(10 / 26 * var(--game-height));
+  --deck-top    : calc(var(--deck-start) + 0.5 * var(--deck-height) - 0.5 * var(--card-height));
+  --deck-left: 10vw;
+  --table-start: calc(13 / 26 * var(--game-height) + var(--navigation-height));
+  --table-height: calc(10 / 26 * var(--game-height));
+  --table-top: calc(var(--table-start) + 0.5 * var(--table-height) - 0.5 * var(--card-height));
+  */
+}
+
+/* really tall phones etc. */
+@media (max-aspect-ratio: 1/2) {
+  #game {
+    --layout              : 'supertall';
+    grid-template-columns : 3fr 3fr 8fr 3fr 3fr;
+    grid-template-rows    : 3fr 10fr 6fr 6fr 3fr;
+    grid-template-areas   : 
+      "money   title   title  title    joker"
+      "wins    wins    wins    wins    wins"
+      "deck    deck    .       .       ."
+      "table   table   table   table   table"
+      "control control control control control"
+    ;
+  }
+  #test {
+    grid-area: deck;
+    position: relative;
+  }
+}
+
+@media (min-aspect-ratio: 1 / 1) {
+  #game {
+    --layout              : 'landscape';
+    grid-template-columns : 2fr 4fr 4fr 4fr 3fr 3fr;
+    grid-template-rows    : 2fr 4fr 4fr 8fr 2fr;
+    grid-template-areas   :
+      "money   title   title   title   title   joker"
+      "deck    deck    .       wins    wins    wins"
+      "deck    deck    .       wins    wins    wins"
+      "table   table   table   table   table   table"
+      "control control control control control control"
+    ;
+  }
+}
+
+@media (min-aspect-ratio: 4 / 3 ) {
+  #game {
+    --layout: ">=4/3";
+  }
+}
+
+@media (min-aspect-ratio: 3/2) {
+  #game {
+    --card-height-fraction : 0.34;
+    --card-height           : calc(var(--card-height-fraction) * var(--game-height));
+    --card-width            : calc(var(--card-height) / 1.4);
+  }
+}

@@ -1,0 +1,44 @@
+.App {
+  text-align: center;
+  font-family: cursive;
+  color: #5b5a5a;
+  background-color: #e2e2e2
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 10s linear;
+  animation-direction: alternate;
+}
+
+.App-header {
+  background: linear-gradient(to right, #f24848,#7a7a7a,#f24848);
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.loser {
+  color: #f24848;
+}
+
+.winner {
+  color: #33cc66;
+}
+
+input {
+  width: 30px;
+  height: 25px;
+}

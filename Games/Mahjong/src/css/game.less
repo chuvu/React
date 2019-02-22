@@ -1,0 +1,73 @@
+#mahjongg {
+  .board {
+    width: 640px;
+    height: 480px;
+    margin: 0 auto;
+    border: 1px solid #888;
+    position: relative;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    background-image: url('../i/bkg_game.jpg');
+
+    &.loading {
+      background-color: #d2c8b5;
+      background-image: url('../i/loading.gif');
+      background-position: center center;
+    }
+
+    &.game, &.game-over {
+      // show tiles only in game and gameover states
+      .tile, .tile-shadow {
+        &.visible {
+          display: block;
+        }
+      }
+    }
+
+    // change background
+    &.game-won {
+
+    }
+
+    .tile-shadow {
+      position: absolute;
+      width: 36px;
+      height: 48px;
+      box-shadow: 0 0 6px #000, 0 0 20px #000;
+
+      &.selected {
+      }
+    }
+
+    .tile {
+      position: absolute;
+
+      &.clickable {
+        cursor: pointer;
+        //box-shadow: inset 0 0 10px #00df00;
+      }
+
+      &.selected {
+        box-shadow: inset 0 0 10px #df0000;
+      }
+    }
+  }
+
+  .statusbar {
+    width: 640px;
+    margin: 0 auto;
+    background: #dbcebb;
+
+    button {
+      outline: none;
+      display: inline-block;
+      padding: 3px 15px;
+      border: 1px solid #888;
+      text-decoration: none;
+      background: #fbefd7;
+    }
+  }
+
+  @import "tiles";
+}

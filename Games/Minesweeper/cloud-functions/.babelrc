@@ -1,0 +1,23 @@
+{
+    "presets": [
+        [
+            "env",
+            {
+                "useBuiltIns": true,
+                "targets": {
+                    "node": "6.11.5"
+                }
+            }
+        ]
+    ],
+    "plugins": [
+        ["add-header-comment", {
+          "header": [
+            "eslint-disable"
+          ],
+          "commentStart": " ",
+          "commentEnd": " ",
+          "commentLineStart": ""
+        }]
+      ]
+}
