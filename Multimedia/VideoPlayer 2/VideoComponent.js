@@ -6,11 +6,17 @@ import ProgressBar from 'react-native-progress/Bar'
 import Icon from 'react-native-vector-icons/FontAwesome'
 import * as Progress from 'react-native-progress';
 
+
 function secondsToTime(time) {
     return ~~(time / 60) + ":" + (time % 60 < 10 ? "0" : "") + time % 60;
 }
 
-const { width, height } = Dimensions.get('screen');
+//const { width, height } = Dimensions.get('screen');
+
+
+
+var width = Dimensions.get('window').width; //full width
+var height = Dimensions.get('window').height; //full height
 
 export default class VideoComponent extends React.Component {
 
@@ -74,6 +80,7 @@ export default class VideoComponent extends React.Component {
 						rate={1.0}
 						ignoreSilentSwitch={"obey"}
 						ref={ref => this.player = ref}
+
 						/>
 
                     <View style={styles.playpause}>
@@ -106,6 +113,8 @@ export default class VideoComponent extends React.Component {
 
 const styles = StyleSheet.create({
     container: {
+      width: "100%",
+      height: "100%",
       flex: 1,
     },
     controls: {
