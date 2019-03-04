@@ -5,18 +5,27 @@ import Video from 'react-native-video'
 import ProgressBar from 'react-native-progress/Bar'
 import Icon from 'react-native-vector-icons/FontAwesome'
 import * as Progress from 'react-native-progress';
+import { responsiveHeight, responsiveWidth, responsiveFontSize } from 'react-native-responsive-dimensions';
 
 
 function secondsToTime(time) {
     return ~~(time / 60) + ":" + (time % 60 < 10 ? "0" : "") + time % 60;
 }
 
+//const { width, height } = Dimensions.get('window');
 //const { width, height } = Dimensions.get('screen');
+const {height, width} = Dimensions.get('window');
+/*
+export const responsiveHeight = (h) => {
+  return height*(h/100);
+};
 
+export const responsiveWidth = (w) => {
+  return width*(w/100);
+};*/
 
-
-var width = Dimensions.get('window').width; //full width
-var height = Dimensions.get('window').height; //full height
+// var width = Dimensions.get('screen').width; //full width
+// var height = Dimensions.get('screen').height; //full height
 
 export default class VideoComponent extends React.Component {
 
@@ -67,9 +76,10 @@ export default class VideoComponent extends React.Component {
 			<View style={styles.container}>
 				<View>
 					<Video
-						source={require('./assets/videoplayback.mp4')}
+						source={require('./assets/DragonBallHeroes9.mp4')}
 						paused={this.state.paused}
-						style={{ width: width, height: height}}
+						//style={{ width: responsiveWidth(50), height: responsiveHeight(50)}}
+						style={{ width: width,height:height}}
 						onLoad={this.handleLoad}
 						onProgress={this.handleProgress}
 						onEnd={this.handleEnd}
@@ -113,8 +123,6 @@ export default class VideoComponent extends React.Component {
 
 const styles = StyleSheet.create({
     container: {
-      width: "100%",
-      height: "100%",
       flex: 1,
     },
     controls: {
