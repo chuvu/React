@@ -1,0 +1,42 @@
+.body {
+
+    background: url(img/tapete.jpg) no-repeat center center fixed;
+    background-size: cover;
+    color: white !important;
+}
+
+#jugador {
+    
+    height: 400px;
+}
+
+#banca {
+    
+    height: 400px;
+}
+
+.cartas {
+    
+    padding: 0px 10px;
+}
+
+.puntos {
+    
+    background: transparent;
+    border: none;
+    font-size: xx-large;
+    color: white;
+    outline: none;
+}
+
+.puntos:hover, .puntos:focus, .puntos:visited, .puntos:active {
+    
+    outline: none;
+}
+
+.title {
+    
+    float: inherit;
+    margin-right: 20px;
+}
+

@@ -1,0 +1,46 @@
+<html>
+
+    <head>
+    	<title> Siete y medio </title>
+    	<link rel="stylesheet" href="style.css" type="text/css">
+    	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css" integrity="sha384-AysaV+vQoT3kOAXZkl02PThvDr8HYKPZhNT5h/CXfBThSRXQ6jW5DO2ekP5ViFdi" crossorigin="anonymous">
+    	<script src="sieteymedio.js"></script>
+    </head>
+    
+    <body onLoad="sieteymedio();" class="body">
+        <div class="container-fluid">
+            
+            <div class="row">
+                <div id="banca" class="col-xs-12">
+                
+                <h1 class="title">Banca</h1><input class="puntos" id="puntosBanca"></input>
+                <div class="text-xs-center" id="cartasBanca"></div>
+                
+                </div>
+            </div>
+            
+            <div class="row">
+                
+                <div id="jugador" class="col-xs-12">
+                
+                <h1 class="title">Jugador</h1><input class="puntos" id="puntosJugador"></input>
+                <div class="text-xs-center" id="cartasJugador"></div>
+                
+                </div>
+            
+            </div>
+            
+            <div class="row">
+            
+                <div class="col-xs-12 text-xs-center">
+                    <input class="btn btn-danger" type="button" value="Plantarse" onClick="kartaBanka(); irabazle();" />
+            		<input class="btn btn-success" type="button" value="Una carta mas" onClick="kartaBat();" />
+            		<input class="btn btn-primary" type="button" value="Empezar" onClick="nueva_mano()" />
+                </div>
+                
+            </div>
+        
+        </div>
+    </body>
+
+</html>
