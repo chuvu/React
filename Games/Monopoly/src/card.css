@@ -1,0 +1,25 @@
+#card {
+	border: 3px #cbc8c8 solid;
+	padding: 10px;
+	width: 248px;
+	height: 220px;
+}
+
+.cardColor {
+	width: 20px;
+	height: 20px;	
+	float: left;
+	margin-right: 10px;
+}
+
+.cardName {
+	float: left;
+}
+
+.cardImage {
+	width: 70px;
+}
+
+.containerCardImage {
+    text-align: center;
+}

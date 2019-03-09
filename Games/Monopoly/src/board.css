@@ -1,0 +1,136 @@
+.board {
+	float: left;
+	width: 60%;
+	font-family: sans-serif;
+}
+
+#tableBoard {
+	border: 3px #cbc8c8 solid;
+}
+
+.boardCenter {
+	width: 100px;
+	text-align: center;
+}
+
+.boardCenter > img {
+	border: 0;
+}
+
+#boardCentralImage {
+	width: 380px;
+}
+
+.divSquare {
+	height:100%; 
+	width:100%;
+}
+
+.textSquare {
+	margin: 2px;
+}
+
+.bigSquare {
+	width: 70px;
+	height: 70px;		
+	background-color: #eef2f3;
+	text-align: center;	
+}
+
+.small-vertical {
+	width: 40px;
+	height: 70px;	
+	background-color: #eef2f3;
+}
+
+.small-horizontal {
+	width: 70px;
+	height: 40px;
+	background-color: #eef2f3;
+}
+
+.upContent {
+	width: 100%;
+	height: 70%;
+}
+
+.upHeader {
+	width: 100%;
+	height: 30%;
+}
+
+.leftContent {
+	width: 70%;
+	height: 100%;
+	float: right;
+}
+
+.leftHeader {
+	width: 30%;
+	height: 100%;
+	float: right;
+}
+
+.rightContent {
+	width: 70%;
+	height: 100%;
+	float: left;
+}
+
+.rightHeader {
+	width: 30%;
+	height: 100%;
+	float: left;
+}
+
+.downContent {
+	width: 100%;
+	height: 70%;
+}
+
+.downHeader {
+	width: 100%;
+	height: 30%;
+}
+
+.text {
+	font-family: 'Arial';
+}
+
+.whiteStreet {
+	background-color: #eef2f3;
+}
+
+.grayStreet {
+	background-color: gray;
+}
+
+.violetStreet {
+	background-color: violet;
+}
+
+.brownStreet {
+	background-color: brown;
+}
+
+.orangeStreet {
+	background-color: orange;
+}
+
+.redStreet {
+	background-color: red;
+}
+
+.yellowStreet {
+	background-color: yellow;
+}
+
+.greenStreet {
+	background-color: green;
+}
+
+.blueStreet {
+	background-color: blue;
+}
+
+
