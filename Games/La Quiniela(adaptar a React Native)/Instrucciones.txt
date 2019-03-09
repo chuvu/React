@@ -1,0 +1,3 @@
+Hay que coger el proyecto de euromillones y cambiar cosas para adaptarlo a quiniela de futbol. El panel deber ser del 1 al 14 que permita seleccionar 1,x o 2 con 5 columnas de apuestas.El pleno al quince es único seleccionando 1,x o 2.
+
+La tabla de aciertos hay que cambiarla y los premios deber ser de 10 a 15 aciertos.
