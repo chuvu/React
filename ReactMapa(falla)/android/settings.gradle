@@ -1,0 +1,9 @@
+rootProject.name = 'MeuAppGranchitaoCarnaval'
+include ':react-native-vector-icons'
+project(':react-native-vector-icons').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-vector-icons/android')
+include ':react-native-360'
+project(':react-native-360').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-360/android')
+
+include ':app'
+include ':react-native-maps'
+project(':react-native-maps').projectDir = new File(rootProject.projectDir,'../node_modules/react-native-maps/lib/android')
