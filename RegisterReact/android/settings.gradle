@@ -1,0 +1,3 @@
+rootProject.name = 'RegisterReact'
+
+include ':app'
