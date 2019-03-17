@@ -15,7 +15,7 @@ export default class App extends Component<{}>
         this.setState({ loading: true, disabled: true }, () =>
         {
          //    fetch('https://gamersite123.000webhostapp.com/user_registration.php',
-            fetch('https://192.168.1.39/Registro/user_registration.php',
+            fetch('https://192.168.1.39:80/Registro/user_registration.php',
            //fetch('https://localhost/Registro/user_registration.php',
             {
                 method: 'POST',
