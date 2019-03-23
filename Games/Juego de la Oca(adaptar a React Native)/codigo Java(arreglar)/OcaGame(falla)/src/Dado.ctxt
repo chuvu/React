@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.target=Dado
+comment1.params=
+comment1.target=Dado()
+comment2.params=g
+comment2.target=void\ config(java.awt.Graphics2D)
+comment3.params=g
+comment3.target=boolean\ draw(java.awt.Graphics2D)
+comment4.params=
+comment4.target=int\ tirar()
+numComments=5
