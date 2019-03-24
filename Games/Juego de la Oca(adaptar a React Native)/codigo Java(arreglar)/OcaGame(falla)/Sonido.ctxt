@@ -1,0 +1,23 @@
+#BlueJ class context
+comment0.target=Sonido
+comment1.params=
+comment1.target=Sonido()
+comment10.params=file
+comment10.target=void\ play(java.lang.String)
+comment2.params=
+comment2.target=void\ oca()
+comment3.params=
+comment3.target=void\ puente()
+comment4.params=
+comment4.target=void\ dado()
+comment5.params=
+comment5.target=void\ pena()
+comment6.params=
+comment6.target=void\ muerte()
+comment7.params=
+comment7.target=void\ bien()
+comment8.params=
+comment8.target=void\ mover()
+comment9.params=
+comment9.target=void\ tirar()
+numComments=11

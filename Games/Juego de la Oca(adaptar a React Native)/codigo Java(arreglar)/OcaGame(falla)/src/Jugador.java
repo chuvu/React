@@ -178,15 +178,15 @@ public class Jugador
         }
         String file;
         switch (id) {
-            case 0: file = "/img/player0.png";
+            case 0: file = "img/player0.png";
             break; 
-            case 1: file = "/img/player1.png";
+            case 1: file = "img/player1.png";
             break;
-            case 2: file = "/img/player2.png";
+            case 2: file = "img/player2.png";
             break;
-            case 3: file = "/img/player3.png";
+            case 3: file = "img/player3.png";
             break;
-            default: file = "/img/player0.png";
+            default: file = "img/player0.png";
         }
         File f = new File(file);
         if(f.exists() && !f.isDirectory()) {    

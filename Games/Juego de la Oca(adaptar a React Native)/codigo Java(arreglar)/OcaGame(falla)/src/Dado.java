@@ -11,12 +11,12 @@ public class Dado
     private Graphics2D animator;
     
     private String strings[] = {
-        "/img/1.png",
-        "/img/2.png",
-        "/img/3.png",
-        "/img/4.png",
-        "/img/5.png",
-        "/img/6.png"
+        "img/1.png",
+        "img/2.png",
+        "img/3.png",
+        "img/4.png",
+        "img/5.png",
+        "img/6.png"
     };
     
     public Dado() {
@@ -45,19 +45,19 @@ public class Dado
         Sonido.tirar();
         tiradan = ThreadLocalRandom.current().nextInt(1, 6 + 1);
         switch (tiradan) {
-            case 1: tirada = "/img/1.png";
+            case 1: tirada = "img/1.png";
             break;
-            case 2: tirada = "/img/2.png";
+            case 2: tirada = "img/2.png";
             break;
-            case 3: tirada = "/img/3.png";
+            case 3: tirada = "img/3.png";
             break;
-            case 4: tirada = "/img/4.png";
+            case 4: tirada = "img/4.png";
             break;
-            case 5: tirada = "/img/5.png";
+            case 5: tirada = "img/5.png";
             break;
-            case 6: tirada = "/img/6.png";
+            case 6: tirada = "img/6.png";
             break;
-            default: tirada = "/img/1.png";
+            default: tirada = "img/1.png";
         }
         return tiradan;
     }
